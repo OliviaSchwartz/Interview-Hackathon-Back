@@ -9,6 +9,20 @@ const getAllStudents = async (req, res) => {
   }
 }
 
+const deleteStudent = async (req, res) => {
+  try {
+    await Student.destroy({ where: { id: req.params.student_id } })
+    res.send({
+      msg: 'Student Un-enrolled',
+      payload: req.params.student_id,
+      status: 'OK'
+    })
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
-  getAllStudents
+  getAllStudents,
+  deleteStudent
 }
