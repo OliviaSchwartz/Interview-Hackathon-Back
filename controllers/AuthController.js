@@ -19,6 +19,7 @@ const Login = async (req, res) => {
         email: student.email
       }
       let token = middleware.createToken(payload)
+      console.log(payload)
       return res.send({ student: payload, token })
     }
     res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
