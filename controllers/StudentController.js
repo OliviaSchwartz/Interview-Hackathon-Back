@@ -1,9 +1,25 @@
-const { Student } = require('../models')
+const { Student, Course, Grade } = require('../models')
 
 const getAllStudents = async (req, res) => {
   try {
     const students = await Student.findAll()
     res.send(students)
+  } catch (error) {
+    throw error
+  }
+}
+
+const getStudentById = async (req, res) => {
+  try {
+    const student = await Student.findByPk(req.params.student_id, {
+      include: {
+        model: Course,
+        through: Grade,
+        as: 'courses'
+        // attributes: ['name']
+      }
+    })
+    res.send(student)
   } catch (error) {
     throw error
   }
@@ -24,5 +40,6 @@ const deleteStudent = async (req, res) => {
 
 module.exports = {
   getAllStudents,
+  getStudentById,
   deleteStudent
 }
