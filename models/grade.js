@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Grade.init(
     {
-      grade: DataTypes.INTEGER,
+      grade: DataTypes.FLOAT,
       studentId: {
         type: DataTypes.INTEGER,
         allowNull: false,

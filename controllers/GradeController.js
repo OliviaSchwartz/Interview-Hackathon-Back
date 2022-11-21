@@ -12,6 +12,8 @@ const updateGrade = async (req, res) => {
         returning: true
       }
     )
+    // add update GPA call here
+
     res.send(newGrade)
   } catch (error) {
     throw error

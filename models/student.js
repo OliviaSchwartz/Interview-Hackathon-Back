@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       Student.belongsToMany(models.Course, {
         as: 'courses',
         through: models.Grade,
-        foreignKey: 'courseId'
+        foreignKey: 'studentId'
       })
     }
   }
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: { type: DataTypes.STRING, allowNull: false },
       email: { type: DataTypes.STRING, allowNull: false },
-      gpa: DataTypes.INTEGER,
+      gpa: DataTypes.FLOAT,
       passwordDigest: { type: DataTypes.STRING, allowNull: false }
     },
     {
