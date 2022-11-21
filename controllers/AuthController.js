@@ -29,10 +29,9 @@ const Login = async (req, res) => {
 
 const Register = async (req, res) => {
   try {
-    const { username, name, email, password } = req.body
+    const { name, email, password } = req.body
     let passwordDigest = await middleware.hashPassword(password)
     const student = await Student.create({
-      username,
       name,
       email,
       passwordDigest
