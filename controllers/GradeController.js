@@ -20,6 +20,21 @@ const updateGrade = async (req, res) => {
   }
 }
 
+const getGrade = async (req, res) => {
+  try {
+    const grade = await Grade.findOne({
+      where: {
+        studentId: req.params.student_id,
+        courseId: req.params.course_id
+      }
+    })
+    res.send(grade)
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
-  updateGrade
+  updateGrade,
+  getGrade
 }
