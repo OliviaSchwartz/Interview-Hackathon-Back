@@ -11,8 +11,8 @@ Router.get(
 )
 Router.post(
   '/addCourse',
-  middleware.stripToken,
-  middleware.verifyToken,
+  // middleware.stripToken,
+  // middleware.verifyToken,
   controller.addCourse
 )
 Router.post(
